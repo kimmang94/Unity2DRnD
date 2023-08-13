@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
-    private void Start()
-    {
-        
-    }
-
+    private float moveSpeed = 3.0f;
+    
     private void Update()
     {
-        
+        transform.position += Vector3.down * moveSpeed * Time.deltaTime;
     }
 }
