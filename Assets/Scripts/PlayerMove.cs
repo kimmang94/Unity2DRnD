@@ -7,11 +7,18 @@ public class PlayerMove : MonoBehaviour
     
     [SerializeField]
     private float moveSpeed = 0;
+
+    [SerializeField] private GameObject weapon = null;
+    [SerializeField] private Transform shootTransform = null;
+
+    [SerializeField] private float shootInterval = 0.05f; 
     
+    private float lastShotTime = 0f;
     private void Update()
     {
         PlayerMoveDefFunc();
         PlayerMoveOnMouse();
+        Attack();
     }
     
     /// <summary>
@@ -52,5 +59,15 @@ public class PlayerMove : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float toX = Mathf.Clamp(mousePos.x, -2.35f, 2.35f);
         transform.position = new Vector3(toX, transform.position.y, transform.position.z);
+    }
+
+    private void Attack()
+    {
+        if (Time.time - lastShotTime > shootInterval)
+        {
+            Instantiate(weapon, shootTransform.position, Quaternion.identity);
+            lastShotTime = Time.time;
+        }
+        
     }
 }
