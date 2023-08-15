@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    // 키보드 움직임 제어 스크립트
+    
     [SerializeField]
     private float moveSpeed = 0;
     
     private void Update()
     {
         PlayerMoveDefFunc();
+        PlayerMoveOnMouse();
     }
     
     /// <summary>
@@ -44,5 +45,11 @@ public class PlayerMove : MonoBehaviour
             transform.position += moveTo;
         }
     }
-    
+
+    private void PlayerMoveOnMouse()
+    {
+        // 마우스 해상도 기준 -> 포지션위치로 변경
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector3(mousePos.x, transform.position.y, transform.position.z);
+    }
 }
