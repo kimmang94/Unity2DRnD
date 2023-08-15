@@ -15,5 +15,7 @@ public class PlayerMove : MonoBehaviour
         Vector3 moveTo = new Vector3(horizontalInput, verticalInput, 0f);
 
         transform.position += moveTo * moveSpeed * Time.deltaTime;
+        Debug.Log(horizontalInput);
+        Debug.Log(verticalInput);
     }
 }
