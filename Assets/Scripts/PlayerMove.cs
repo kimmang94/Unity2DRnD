@@ -50,6 +50,7 @@ public class PlayerMove : MonoBehaviour
     {
         // 마우스 해상도 기준 -> 포지션위치로 변경
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3(mousePos.x, transform.position.y, transform.position.z);
+        float toX = Mathf.Clamp(mousePos.x, -2.35f, 2.35f);
+        transform.position = new Vector3(toX, transform.position.y, transform.position.z);
     }
 }
