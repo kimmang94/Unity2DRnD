@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject[] enemies = null;
+    
+    private float[] arrPosX = { -2.2f, -1.1f, 0f, 1.1f, 2.2f };
+    private void Start()
     {
+        foreach (float posX in arrPosX)
+        {
+            int index = Random.Range(0,enemies.Length);
+            SpawnEnemy(posX, index);
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SpawnEnemy(float posX, int index)
     {
-        
+        Vector3 spawnPos = new Vector3(posX, transform.position.y, transform.position.z);
+        Instantiate(enemies[index], spawnPos, Quaternion.identity);
     }
+
 }
