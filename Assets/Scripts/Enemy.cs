@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private float destroyPosY = -6f;
+    private void Update()
     {
-        
-    }
+        transform.position += Vector3.down * moveSpeed * Time.deltaTime;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (transform.position.y < destroyPosY)
+        {
+            Destroy(gameObject);
+        }
     }
 }
