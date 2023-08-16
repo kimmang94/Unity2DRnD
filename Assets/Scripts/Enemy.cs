@@ -20,11 +20,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 난이도가 증가함에 따라 적의 속도 증가를 위한 기능
+    /// </summary>
+    /// <param name="moveSpeed"></param>
     public void SetMoveSpeed(float moveSpeed)
     {
         this.moveSpeed = moveSpeed;
     }
 
+    /// <summary>
+    /// 공격을 적이 맞는 경우 데미지만큼 hp가 감소하는기능
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Weapon")

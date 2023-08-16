@@ -54,6 +54,9 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 마우스로 이동하기 위한 기능
+    /// </summary>
     private void PlayerMoveOnMouse()
     {
         // 마우스 해상도 기준 -> 포지션위치로 변경
@@ -62,6 +65,9 @@ public class PlayerMove : MonoBehaviour
         transform.position = new Vector3(toX, transform.position.y, transform.position.z);
     }
 
+    /// <summary>
+    /// 공격을 위한 기능 (Interval 로 공격속도를 조절)
+    /// </summary>
     private void Attack()
     {
         if (Time.time - lastShotTime > shootInterval)
@@ -72,6 +78,10 @@ public class PlayerMove : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// 적 과 충돌시 확인 기능
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")

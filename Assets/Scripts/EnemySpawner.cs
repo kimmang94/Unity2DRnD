@@ -16,6 +16,9 @@ public class EnemySpawner : MonoBehaviour
         StartEnemyRoutine();
     }
 
+    /// <summary>
+    /// 코루틴을 실행하기 위한 기능
+    /// </summary>
     private void StartEnemyRoutine()
     {
         StartCoroutine("EnemyRoutine");
