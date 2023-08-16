@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   destroyPosY: -7
+  hp: 7
 --- !u!50 &382153740043180780
 Rigidbody2D:
   serializedVersion: 4

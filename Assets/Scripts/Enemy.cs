@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float destroyPosY = -6f;
 
+    [SerializeField]
     private float hp = 1;
     
     private void Update()
