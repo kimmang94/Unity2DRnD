@@ -30,13 +30,13 @@ public class EnemySpawner : MonoBehaviour
 
         int spawnCount = 0;
         int enemyIndex = 0;
-        
+        float moveSpeed = 4f;
         
         while (true)
         {
             foreach (float posX in arrPosX)
             {
-                SpawnEnemy(posX, enemyIndex);
+                SpawnEnemy(posX, enemyIndex, moveSpeed);
             }
             
             spawnCount++;
@@ -44,6 +44,7 @@ public class EnemySpawner : MonoBehaviour
             if (spawnCount % 10 == 0)
             {
                 enemyIndex++;
+                moveSpeed += 2;
             }
             yield return new WaitForSeconds(spwanInterval);
         }
@@ -53,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
     /// </summary>
     /// <param name="posX"></param>
     /// <param name="index"></param>
-    private void SpawnEnemy(float posX, int index)
+    private void SpawnEnemy(float posX, int index, float moveSpeed)
     {
         Vector3 spawnPos = new Vector3(posX, transform.position.y, transform.position.z);
 
@@ -66,7 +67,10 @@ public class EnemySpawner : MonoBehaviour
         {
             index = enemies.Length - 1;
         }
-        Instantiate(enemies[index], spawnPos, Quaternion.identity);
+        
+        GameObject enemyObj = Instantiate(enemies[index], spawnPos, Quaternion.identity);
+        Enemy enemy = enemyObj.GetComponent<Enemy>();
+        enemy.SetMoveSpeed(moveSpeed);
     }
 
 }
