@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   destroyPosY: -7
+  hp: 1
+  coin: {fileID: 5346574388474051695, guid: ab77aa074a8d221419a6e21c1a9a40cc, type: 3}
 --- !u!50 &382153740043180780
 Rigidbody2D:
   serializedVersion: 4
