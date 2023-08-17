@@ -10,7 +10,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private float hp = 1;
-    
+
+    [SerializeField] private GameObject coin = null;
     private void Update()
     {
         transform.position += Vector3.down * moveSpeed * Time.deltaTime;
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
 
     /// <summary>
     /// 공격을 적이 맞는 경우 데미지만큼 hp가 감소하는기능
+    /// 코인 생성 
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
@@ -43,6 +45,7 @@ public class Enemy : MonoBehaviour
             if (hp <= 0)
             {
                 Destroy(gameObject);
+                Instantiate(coin, transform.position, Quaternion.identity);
             }
             Destroy(other.gameObject);
         }
