@@ -25,6 +25,8 @@ public class Coin : MonoBehaviour
 
        float randomJumpForce = Random.Range(4f, 8f);
        Vector2 jumpVelocity = Vector2.up * randomJumpForce;
+
+       jumpVelocity.x = Random.Range(-2f, 2f);
        rigid2D.AddForce(jumpVelocity, ForceMode2D.Impulse);
     }
 }
