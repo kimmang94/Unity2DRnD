@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    private void Start()
+    {
+        Jump();
+    }
+
+    
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// 코인이 위로 올라가는 기능
+    /// </summary>
+    private void Jump()
     {
-        
+       Rigidbody2D rigid2D = GetComponent<Rigidbody2D>();
+
+       float randomJumpForce = Random.Range(4f, 8f);
+       Vector2 jumpVelocity = Vector2.up * randomJumpForce;
+       rigid2D.AddForce(jumpVelocity, ForceMode2D.Impulse);
     }
 }
