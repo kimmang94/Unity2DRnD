@@ -89,5 +89,10 @@ public class PlayerMove : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("GameOver");
         }
+        else if (other.gameObject.tag == "Coin")
+        {
+            Debug.Log("Coin +1");
+            Destroy(other.gameObject);
+        }
     }
 }
