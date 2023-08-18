@@ -93,6 +93,7 @@ public class PlayerMove : MonoBehaviour
         {
             Debug.Log("Coin +1");
             Destroy(other.gameObject);
+            GameManager.instance.IncreaseCoin();
         }
     }
 }
