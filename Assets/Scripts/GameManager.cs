@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public bool isGameOver = false;
+
+    [SerializeField] private GameObject gameoverUI = null;
+    
     private void Awake()
     {
         if (instance == null)
@@ -40,13 +44,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 게임 오버시 몬스터생성 이 멈추고 1초뒤 게임오버패널 등장기능
+    /// </summary>
     public void SetGameOver()
     {
         isGameOver = true;
+        
         EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
         if (enemySpawner != null)
         {
             enemySpawner.StopEnemyRoutine();
         }
+        Invoke("ShowGameOverPanel", 1f);
+    }
+
+    /// <summary>
+    /// 게임 오버 패널 등장기능
+    /// </summary>
+    private void ShowGameOverPanel()
+    {
+        gameoverUI.SetActive(true);
+    }
+
+    public void OnClickPlayAgain()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
