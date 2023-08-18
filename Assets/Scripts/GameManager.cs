@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int coin = 0;
     [SerializeField] private TextMeshProUGUI text = null;
+
+    [HideInInspector]
+    public bool isGameOver = false;
     private void Awake()
     {
         if (instance == null)
@@ -39,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     public void SetGameOver()
     {
+        isGameOver = true;
         EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
         if (enemySpawner != null)
         {

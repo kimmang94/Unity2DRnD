@@ -21,7 +21,11 @@ public class PlayerMove : MonoBehaviour
     {
         PlayerMoveDefFunc();
         PlayerMoveOnMouse();
-        Attack();
+        if (GameManager.instance.isGameOver == false)
+        {
+            Attack();
+        }
+
     }
     
     /// <summary>
