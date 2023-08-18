@@ -11,7 +11,6 @@ public class Coin : MonoBehaviour
     {
         Jump();
     }
-
     
     void Update()
     {
