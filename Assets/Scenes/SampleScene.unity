@@ -790,7 +790,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  weapon: {fileID: 4790433618670778506, guid: cdadb58b4d82194499620409bfae1441, type: 3}
+  weapons:
+  - {fileID: 4790433618670778506, guid: cdadb58b4d82194499620409bfae1441, type: 3}
+  - {fileID: 4790433618670778506, guid: 21d8ee4584af7244c9bb0780ef5dfbc0, type: 3}
+  - {fileID: 4790433618670778506, guid: f9c04d97f755f564595d31bf8a911ffc, type: 3}
   shootTransform: {fileID: 75651162}
   shootInterval: 0.25
 --- !u!58 &769324913
@@ -1429,6 +1432,7 @@ MonoBehaviour:
   - {fileID: 3739067030143994095, guid: 823db8bb826c3c543ba08cb300f364c1, type: 3}
   - {fileID: 3739067030143994095, guid: 3689b3fc6eb84b146b814b079027e12c, type: 3}
   - {fileID: 3739067030143994095, guid: a1ede5a767b937247b3e9d001989bf54, type: 3}
+  boss: {fileID: 3739067030143994095, guid: b944e683474653044a35e5c4a108a775, type: 3}
   spwanInterval: 1.5
 --- !u!1 &1830057316
 GameObject:
