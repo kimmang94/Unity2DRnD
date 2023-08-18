@@ -25,6 +25,16 @@ public class EnemySpawner : MonoBehaviour
     {
         StartCoroutine("EnemyRoutine");
     }
+
+    /// <summary>
+    /// 몬스터 생성을 멈추기 위한 기능 
+    /// </summary>
+    public void StopEnemyRoutine()
+    {
+        StopCoroutine("EnemyRoutine");
+    }
+    
+    
     /// <summary>
     /// 적 생성을 위한 코루틴
     /// </summary>
