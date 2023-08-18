@@ -21,10 +21,19 @@ public class GameManager : MonoBehaviour
 
     /// <summary>
     /// 코인을 증가시키는 기능
+    /// 30 마다 무기 진화
     /// </summary>
     public void IncreaseCoin()
     {
         coin++;
         text.SetText(coin.ToString());
+        if (coin % 30 == 0)
+        {
+            PlayerMove playerMove = FindObjectOfType<PlayerMove>();
+            if (playerMove != null)
+            {
+                playerMove.Upgrade();
+            }
+        }
     }
 }

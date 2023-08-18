@@ -9,7 +9,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 0;
 
-    [SerializeField] private GameObject weapon = null;
+    [SerializeField] private GameObject[] weapons = null;
+    private int weaponIndex = 0;
+    
     [SerializeField] private Transform shootTransform = null;
 
     [SerializeField] private float shootInterval = 0.05f; 
@@ -72,7 +74,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (Time.time - lastShotTime > shootInterval)
         {
-            Instantiate(weapon, shootTransform.position, Quaternion.identity);
+            Instantiate(weapons[weaponIndex], shootTransform.position, Quaternion.identity);
             lastShotTime = Time.time;
         }
         
@@ -94,6 +96,18 @@ public class PlayerMove : MonoBehaviour
             Debug.Log("Coin +1");
             Destroy(other.gameObject);
             GameManager.instance.IncreaseCoin();
+        }
+    }
+
+    /// <summary>
+    /// 무기 진화를 위한 기능
+    /// </summary>
+    public void Upgrade()
+    {
+        weaponIndex++;
+        if (weaponIndex >= weapons.Length)
+        {
+            weaponIndex = weapons.Length - 1;
         }
     }
 }
