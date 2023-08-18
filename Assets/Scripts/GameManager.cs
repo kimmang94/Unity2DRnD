@@ -36,4 +36,13 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void SetGameOver()
+    {
+        EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
+        if (enemySpawner != null)
+        {
+            enemySpawner.StopEnemyRoutine();
+        }
+    }
 }
