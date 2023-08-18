@@ -89,11 +89,10 @@ public class PlayerMove : MonoBehaviour
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
         {
             Destroy(gameObject);
-            Debug.Log("GameOver");
+            GameManager.instance.SetGameOver();
         }
         else if (other.gameObject.tag == "Coin")
         {
-            Debug.Log("Coin +1");
             Destroy(other.gameObject);
             GameManager.instance.IncreaseCoin();
         }
